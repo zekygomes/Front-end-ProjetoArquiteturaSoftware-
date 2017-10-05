@@ -1,0 +1,33 @@
+<app-nav-bar></app-nav-bar>
+<p>
+  Montrando {{ produtos.length }} produtos.
+</p>
+
+<table>
+  <thead>
+  <tr>
+    <th data-field="name">codProduto</th>
+    <th data-field="name">Nome</th>
+    <th data-field="name">Preço</th>
+    <th data-field="name">Tipo</th>
+    <th data-field="name">QntEstoque</th>
+  </tr>
+  </thead>
+
+  <tbody>
+    <tr *ngFor="let produto of produtos">
+      <td>{{ produto.codProduto }}</td>
+      <td>{{ produto.nome }}</td>
+      <td>{{ produto.preco_produto }}</td>
+      <td>{{ produto.tipo_produto }}</td>
+      <td>{{ produto.qnt_estoque }}</td>
+      <td>
+        <a (click)="deleteProduto(produto)" href="">
+          <i class="material-icons">delete</i>
+        </a>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+

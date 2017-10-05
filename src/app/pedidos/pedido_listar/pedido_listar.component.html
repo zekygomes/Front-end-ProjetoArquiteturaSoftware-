@@ -1,0 +1,39 @@
+<app-nav-bar></app-nav-bar>
+<p>
+  Montrando {{ pedidos.length }} pedidos.
+</p>
+
+<table>
+  <thead>
+  <tr>
+    <th data-field="name">Cod</th>
+    <th data-field="name">Cliente</th>
+    <th data-field="name">Produtos</th>
+    <th data-field="name">Data</th>
+    <th data-field="name">Valor Total</th>
+    <th data-field="name">Pagamento</th>
+    <th data-field="name">Entregador</th>
+    <th data-field="name">Status</th>
+    <th data-field="name">Apagar</th>
+  </tr>
+  </thead>
+
+  <tbody>
+    <tr *ngFor="let pedido of pedidos">
+      <td>{{ pedido.idPedido }}</td>
+      <td>{{ pedido.idCliente }}</td>
+      <td>{{ pedido.itensPedido }}</td>
+      <td>{{ pedido.dataPedido }}</td>
+      <td>{{ pedido.valorTotal }}</td>
+      <td>{{ pedido.formaPagamento }}</td>
+      <td>{{ pedido.idEntregador }}</td>
+      <td>{{ pedido.status }}</td>
+      <td>
+        <a (click)="deletePedido(pedido)" href="">
+          <i class="material-icons">delete</i>
+        </a>
+      </td>
+    </tr>
+  </tbody>
+</table>
+

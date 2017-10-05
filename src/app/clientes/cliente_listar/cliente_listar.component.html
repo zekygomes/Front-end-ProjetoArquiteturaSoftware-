@@ -1,0 +1,48 @@
+<app-nav-bar></app-nav-bar>
+<p>
+  Montrando {{ clientes.length }} clientes.
+</p>
+
+<table>
+  <thead>
+  <tr>
+    <th data-field="name">Nome</th>
+    <th data-field="name">Email</th>
+    <th data-field="name">Endereco</th>
+    <th data-field="name">Telefone</th>
+    <th data-field="name">Ponto de Referência</th>
+    <th data-field="name">Situacao</th>
+    <th data-field="name">Editar</th>
+    <th data-field="name">Apagar</th>
+  </tr>
+  </thead>
+
+  <tbody>
+    <tr *ngFor="let cliente of clientes">
+      <td>{{ cliente.nome }}</td>
+      <td>{{ cliente.email_cliente }}</td>
+      <td>{{ cliente.endereco_cliente }}</td>
+      <td>{{ cliente.telefone_cliente }}</td>
+      <td>{{ cliente.ponto_referencia_cliente }}</td>
+      <td>{{ cliente.situacao_cliente }}</td>
+      <md-icon svgIcon="thumbs-up"></md-icon>
+      <td>
+        <a [routerLink]="['/clientes', cliente.id]">
+          <i class="material-icons">mode_edit</i>
+        </a>
+      </td>
+      <td>
+        <a (click)="deleteCliente(cliente)" href="">
+          <i class="material-icons">delete</i>
+        </a>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="fixed-action-btn" style="bottom: 45px; right: 24px;">
+  <a class="btn-floating btn-large waves-effect waves-light green"
+     routerLink="/clientes/novo">
+    <i class="material-icons">add</i>
+  </a>
+</div>

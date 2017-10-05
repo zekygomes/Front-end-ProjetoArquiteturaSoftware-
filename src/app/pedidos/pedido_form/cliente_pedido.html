@@ -1,0 +1,29 @@
+<app-nav-bar></app-nav-bar>
+<div class="container">
+<h5>{{ title }}</h5>
+<form materialize class="col s12" [formGroup]="formCliente" (ngSubmit)="save()">
+  <div class="row">
+    <div class="input-field col s10">
+      <i class="material-icons prefix">account_circle</i>
+      <select materialize="material_select" name="cliente" [materializeSelectOptions]="selectClientes" id="cliente"
+        [attr.disabled]="isDisabled?true:null" [(ngModel)]="selectedCliente" formControlName="cliente">
+          <option value="" disabled selected>Cliente</option>
+          <option *ngFor="let option of selectClientes" [value]="option.value">{{option.name}}</option>
+      </select>
+    </div>
+    <div class="input-field col s2">
+      <button class="btn waves-effect waves-light" type="submit" [disabled]="!form.valid" routerLink="/clientes/novo">
+          Novo<i class="material-icons right">send</i>
+        </button>
+    </div>
+  </div>
+</form>
+
+
+<div class="fixed-action-btn" style="bottom: 45px; right: 94px;">
+  <a class="btn-floating btn-large waves-effect waves-light green"
+     routerLink="/pedidos/refeicao">
+    <i class="material-icons">trending_flat</i>
+  </a>
+</div>
+</div>

@@ -1,0 +1,26 @@
+
+.block-button{
+  cursor: pointer;
+  color: #777777;
+}
+
+.block-button:active{
+  -o-box-shadow: 2px 2px 19px #55CC55;
+  -webkit-box-shadow: 2px 2px 19px #55CC55;
+  -moz-box-shadow: 2px 2px 19px #55CC55;
+}
+
+.block-button-text{
+  font-size: 3em;
+}
+
+.block-button-phrase{
+  font-size: 1.1m;
+  height: 48px;
+}
+
+.block-button-numbers{
+  font-size: .9em;
+  height: .9em;
+  color: #0088FF;
+}

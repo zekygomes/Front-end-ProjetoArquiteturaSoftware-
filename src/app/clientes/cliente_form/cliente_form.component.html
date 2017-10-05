@@ -1,0 +1,72 @@
+<app-nav-bar></app-nav-bar>
+<h5>{{ title }}</h5>
+<div class="row">
+  <form materialize class="col s12" [formGroup]="form" (ngSubmit)="save()">
+
+    <div class="row">
+      <div class="input-field col s12">
+        <i class="material-icons prefix">account_circle</i>
+        <input id="nome" type="text" class="validate" [(ngModel)]="cliente.nome" formControlName="nome" [class.invalid]="form.controls['nome'].touched && !form.controls['nome'].valid">
+        <label for="nome" [class.active]="cliente.nome" data-error="Campo obrigatório e deve conter mais de 3 letras">
+          Nome
+        </label>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="input-field col s12">
+        <i class="material-icons prefix">place</i>
+        <input id="endereco" type="text" class="validate" [(ngModel)]="cliente.endereco" formControlName="endereco" [class.invalid]="form.controls['endereco'].touched && !form.controls['endereco'].valid">
+        <label for="endereco" [class.active]="cliente.endereco" data-error="Campo obrigatório e deve conter mais de 3 letras">
+          Endereço
+        </label>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="input-field col s6">
+        <i class="material-icons prefix">email</i>
+        <input id="email" type="text" class="validate" [(ngModel)]="cliente.email" formControlName="email" >
+        <label for="email" [class.active]="cliente.email" data-error="E-mail Inválido">
+          E-mail
+        </label>
+      </div>
+      <div class="input-field col s6">
+        <i class="material-icons prefix">phone</i>
+        <input id="telefone" type="text" class="validate" [(ngModel)]="cliente.telefone" formControlName="telefone">
+        <label for="telefone" [class.active]="cliente.telefone">Telefone</label>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="input-field col s12">
+        <i class="material-icons prefix">map</i>
+        <input id="pontoDeReferencia" type="text" class="validate" [(ngModel)]="cliente.pontoDeReferencia" formControlName="pontoDeReferencia"
+          [class.invalid]="form.controls['pontoDeReferencia'].touched && !form.controls['pontoDeReferencia'].valid">
+        <label for="pontoDeReferencia" [class.active]="cliente.pontoDeReferencia" data-error="Campo obrigatório e deve conter mais de 3 letras">
+          Ponto de Referência
+        </label>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="input-field col s6">
+        <i class="material-icons prefix">thumbs_up_down</i>
+        <select materialize="material_select" id="situacao" type="text" class="validate"  
+          [(ngModel)]="cliente.situacao" formControlName="situacao">
+            <option> Ativo</option>
+            <option>Inativo</option>
+          </select>
+        <label for="situacao" [class.active]="cliente.situacao">
+          Tipo de Produto
+        </label>
+      </div>
+      <div class="input-field col s6">
+        <button class="btn-large waves-effect waves-light" type="submit" [disabled]="!form.valid">
+          Enviar<i class="material-icons right">send</i>
+        </button>
+      </div>
+    </div>
+
+  </form>
+</div>

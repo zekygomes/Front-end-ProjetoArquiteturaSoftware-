@@ -1,0 +1,100 @@
+<app-nav-bar></app-nav-bar>
+<h5>{{ title }}</h5>
+<div class="row">
+  <form materialize class="col s12" [formGroup]="form" (ngSubmit)="save()">
+
+    <div class="row">
+      <div class="input-field col s12">
+        <i class="material-icons prefix">receipt</i>
+        <input id="nome" type="text" class="validate" [(ngModel)]="produto.nome" formControlName="nome" >
+        <label for="nome" [class.active]="produto.nome" >
+          Nome
+        </label>
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="input-field col s12">
+        <i class="material-icons prefix">receipt</i>
+        <input id="preco_produto" type="text" class="validate" [(ngModel)]="produto.preco_produto" formControlName="preco_produto" >
+        <label for="preco_produto" [class.active]="produto.preco_produto">
+          Preço
+        </label>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="input-field col s6">
+        <i class="material-icons prefix">receipt</i>
+        <select materialize="material_select" id="tipo_produto" type="text" class="validate"  [(ngModel)]="classe" formControlName="tipo_produto">
+            <option> Refeição</option>
+            <option>Sobremesa</option>
+            <option>Bebida</option>
+          </select>
+        <label for="tipo_produto" [class.active]="produto.tipo_produto">
+          Tipo de Produto
+        </label>
+      </div>
+      <div class="input-field col s6">
+        <i class="material-icons prefix">receipt</i>
+        <input id="qnt_estoque" type="number" class="validate" [(ngModel)]="produto.qnt_estoque" formControlName="qnt_estoque">
+        <label for="qnt_estoque" [class.active]="produto.qnt_estoque">Quantidade em Estoque</label>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="input-field col s6">
+      </div>
+      <div class="input-field col s6">
+        <button class="btn-large waves-effect waves-light" type="submit" [disabled]="!form.valid">
+          Enviar<i class="material-icons right">send</i>
+        </button>
+      </div>
+    </div>
+
+  </form>
+</div>
+
+<!--
+    <div formGroupName="address">
+      <div class="row">
+        <div class="input-field col s8">
+          <i class="material-icons prefix">place</i>
+          <input id="street" type="text" class="validate"
+                 [(ngModel)]="user.address.street" formControlName="street"
+                 [class.invalid]="form.controls['address'].controls['street'].touched
+                  && !form.controls['address'].controls['street'].valid">
+          <label for="street"
+                 [class.active]="user.address.street"
+                 data-error="Invalid Street">
+            Street
+          </label>
+        </div>
+        <div class="input-field col s4">
+          <input id="suite" type="text" class="validate"
+                 [(ngModel)]="user.address.suite" formControlName="suite">
+          <label for="suite" [class.active]="user.address.suite">Suite</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s8">
+          <i class="material-icons prefix">map</i>
+          <input id="city" type="text" class="validate"
+                 [(ngModel)]="user.address.city" formControlName="city">
+          <label for="city" [class.active]="user.address.city">City</label>
+        </div>
+        <div class="input-field col s4">
+          <input id="zipcode" type="text" class="validate"
+                 [(ngModel)]="user.address.zipcode" formControlName="zipcode"
+                 [class.invalid]="form.controls['address'].controls['zipcode'].touched
+                  && !form.controls['address'].controls['zipcode'].valid">
+          <label for="zipcode"
+                 [class.active]="user.address.zipcode"
+                 data-error="Invalid ZipCode">
+            ZipCode
+          </label>
+        </div>
+      </div>
+    </div>
+    -->

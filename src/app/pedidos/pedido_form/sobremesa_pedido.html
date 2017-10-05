@@ -1,0 +1,42 @@
+<app-nav-bar></app-nav-bar>
+<div class="container">
+<h5>{{ title }}</h5>
+<form materialize class="col s12" [formGroup]="formSobremesa" (ngSubmit)="save()">
+  <div class="row">
+    <div class="input-field col s6">
+      <i class="material-icons prefix">shopping_cart</i>
+        <select materialize="material_select" name="sobremesa" [materializeSelectOptions]="selecSobremesas" id="sobremesa"
+        [attr.disabled]="isDisabled?true:null" [(ngModel)]="selectedSobremesa" formControlName="sobremesa">
+          <option value="" disabled selected>Escolha a Sobremesa</option>
+          <option *ngFor="let option of selecSobremesas" [value]="option.value">{{option.name}}</option>
+        </select>
+        <label for="sobremesa" [class.active]="sobremesa">Sobremesa </label>
+    </div>
+    <div class="input-field col s2">
+      <i class="material-icons prefix">label</i>
+      <input id="qntSobremesa" type="number" class="validate" [(ngModel)]="qntSobremesa" formControlName="qntSobremesa">
+      <label for="qntSobremesa" [class.active]="qntSobremesa">Quantidade</label>
+    </div><!--
+    <div class="input-field col s2">
+      <i class="material-icons prefix">payment</i>
+      <input id="qntEstoque" type="number" class="validate" [(ngModel)]="produto.qntEstoque" formControlName="qntSobremesa">
+      <label for="qntEstoque" [class.active]="produto.qntEstoque">Valor R$</label>
+    </div>-->
+      <div class="input-field col s1">
+        <i class="material-icons prefix">payment</i>
+      </div>
+      <div class="input-field col s3">
+        <div class="caixa-texto">
+            Valor Total = R${{qntSobremesa}}
+        </div>
+      </div>
+  </div>
+</form>
+
+<div class="fixed-action-btn" style="bottom: 45px; right: 94px;">
+  <a class="btn-floating btn-large waves-effect waves-light green"
+     routerLink="/pedidos/bebida">
+    <i class="material-icons">trending_flat</i>
+  </a>
+</div>
+</div>

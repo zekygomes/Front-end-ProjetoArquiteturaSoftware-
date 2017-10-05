@@ -1,0 +1,42 @@
+<app-nav-bar></app-nav-bar>
+<div class="container">
+  <h5>{{ title }}</h5>
+  <form materialize class="col s12" [formGroup]="formRefeicao" (ngSubmit)="save()">
+    <div class="row">
+      <div class="input-field col s6">
+        <i class="material-icons prefix">shopping_cart</i>
+        <select materialize="material_select" name="refeicoes" [materializeSelectOptions]="selectRefeicoes" id="refeicoes" [attr.disabled]="isDisabled?true:null"
+          [(ngModel)]="selectedRefeicao" formControlName="refeicoes">
+          <option value="" disabled selected>Escolha a Refeição</option>
+          <option *ngFor="let option of selectRefeicoes" [value]="option.value">{{option.name}}</option>
+        </select>
+        <label for="refeicoes" [class.active]="refeicoes">Refeição </label>
+      </div>
+      <div class="input-field col s2">
+        <i class="material-icons prefix">label</i>
+        <input id="qntRefeicao" type="number" class="validate" [(ngModel)]="qntRefeicao" formControlName="qntRefeicao">
+        <label for="qntRefeicao" [class.active]="qntRefeicao">Quantidade</label>
+      </div>
+      <!--
+    <div class="input-field col s2">
+      <i class="material-icons prefix">payment</i>
+      <input id="valorRefeicoes" type="number" class="validate" [(ngModel)]="produto.precoProduto" formControlName="valorRefeicoes">
+      <label for="valorRefeicoes" [class.active]="produto.precoProduto">Valor Uni R$</label>
+    </div>-->
+      <div class="input-field col s1">
+        <i class="material-icons prefix">payment</i>
+      </div>
+      <div class="input-field col s3">
+        <div class="caixa-texto">
+          Valor Total = R${{qntRefeicao}}
+        </div>
+      </div>
+      </div>
+  </form>
+
+  <div class="fixed-action-btn" style="bottom: 45px; right: 94px;">
+    <a class="btn-floating btn-large waves-effect waves-light green" routerLink="/pedidos/sobremesa">
+    <i class="material-icons">trending_flat</i>
+  </a>
+  </div>
+  </div>
